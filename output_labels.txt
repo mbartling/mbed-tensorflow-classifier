@@ -1,0 +1,4 @@
+ci test shield2
+k64f
+ci test shield1
+pearl gecko
