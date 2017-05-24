@@ -18,7 +18,7 @@ def upload_file():
     if request.method == 'POST':
         # check if the post request has the file part
         if 'file' not in request.files:
-            flash('No file part')
+#            flash('No file part')
             return redirect(request.url)
         file = request.files['file']
         # if user does not select file, browser also
@@ -37,19 +37,44 @@ def upload_file():
                 target = "Unsure"
             return '''
             <!doctype html>
-            <title>Result</title>
-            <h1>Target=%s, Score=%f</h1>
+            <head>
+                <title>Result</title>
+                <meta charset="utf-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1">
+                <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+                <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+                <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+            </head>
+            <div class="jumbotron text-center">
+                <h1>Target=%s, Score=%f</h1>
+            </div>
             ''' % (target, score)
             #return redirect(url_for('uploaded_file',
             #                        filename=filename))
     return '''
     <!doctype html>
-    <title>Upload new File</title>
-    <h1>Upload new File</h1>
-    <form method=post enctype=multipart/form-data>
-      <p><input type=file name=file>
-         <input type=submit value=Upload>
-    </form>
+    <head>
+        <title>Upload new File</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    </head>
+    <div class="jumbotron text-center">
+        <h1>Magical mbed thing recognizer</h1>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6"
+            <h2>Upload new File</h1>
+            <form method=post enctype=multipart/form-data>
+              <p><input type=file class="btn" name=file>
+                 <input type=submit class="btn" value=Upload>
+            </form>
+            </div>
+    </div>
+    </div>
     '''
 
 if __name__ == "__main__":
